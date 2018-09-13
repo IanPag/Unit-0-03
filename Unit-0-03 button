@@ -1,0 +1,74 @@
+// Created on: sept-13-2018
+// Created by:Ian Page
+// Created for: ICS3U
+// This program is the UIKit solution for My name country and city with a button 
+
+import PlaygroundSupport
+
+
+import UIKit
+
+class ViewController : UIViewController {
+    
+    
+    // properties
+    let name = UILabel()
+    let helloWorldButton = UIButton()
+    let city = UILabel()
+    let country = UILabel()
+    
+    
+    
+    override func viewDidLoad() {
+        // UI
+        super.viewDidLoad()
+        
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.view = view
+        
+        
+        name.textColor =  #colorLiteral(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        name.textAlignment = NSTextAlignment.center
+        view.addSubview(name)
+        name.translatesAutoresizingMaskIntoConstraints = false
+        name.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        name.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20).isActive = true
+        
+        city.textColor =  #colorLiteral(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        city.textAlignment = NSTextAlignment.center
+        view.addSubview(city)
+        city.translatesAutoresizingMaskIntoConstraints = false
+        city.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        city.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40).isActive = true
+        
+        country.textColor =  #colorLiteral(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        country.textAlignment = NSTextAlignment.center
+        view.addSubview(country)
+        country.translatesAutoresizingMaskIntoConstraints = false
+        country.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        country.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
+        
+        helloWorldButton.setTitle("Click Me", for: UIControlState.normal)
+        helloWorldButton.setTitleColor(.blue, for: .normal)
+        helloWorldButton.addTarget(self, action: #selector(showText), for: .touchUpInside)
+        view.addSubview(helloWorldButton)
+        helloWorldButton.translatesAutoresizingMaskIntoConstraints = false
+        helloWorldButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        helloWorldButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 20).isActive = true
+    }
+    
+    @objc func showText() {
+        
+        name.text = "Ian Page"
+        city.text = "Ottawa"
+        country.text = "Canada"
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+}
+
+
+PlaygroundPage.current.liveView = ViewController()
